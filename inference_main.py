@@ -59,7 +59,8 @@ def main():
     noice_scale = args.noice_scale
     pad_seconds = args.pad_seconds
     clip = args.clip
-    lg = args.linear_gradient
+    # lg = args.linear_gradient
+    lg_t = args.linear_gradient
     lgr = args.linear_gradient_retain
     F0_mean_pooling = args.f0_mean_pooling
     enhance = args.enhance
@@ -78,7 +79,7 @@ def main():
         chunks = slicer.cut(wav_path, db_thresh=slice_db)
         audio_data, audio_sr = slicer.chunks2audio(wav_path, chunks)
         per_size = int(clip*audio_sr)
-        lg_size = int(lg*audio_sr)
+        lg_size = int(lg_t*audio_sr)
         lg_size_r = int(lg_size*lgr)
         lg_size_c_l = (lg_size-lg_size_r)//2
         lg_size_c_r = lg_size-lg_size_r-lg_size_c_l
